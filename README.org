@@ -1,0 +1,33 @@
+* ESP8266
+** Overview
+The [[https://en.wikipedia.org/wiki/ESP8266][ESP8266]] is a low-cost micro-controller with built-in WiFi
+manufactured by Expressif Systems. This repository contains a few
+small Python programs I have wrote for this device.
+** Development Kit
+I'm using the [[http://www.heltec.cn/project/wifi_kit_8][Heltec Wifi Kit 8]] development board, which conveniently
+has a built-in 0.91 inch OLED screen.
+** Installation
+In order to run these programs you must install the MicroPython
+firmware on your device, instructions can be found [[https://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/intro.html#intro][here]]. To upload the
+scripts I suggest using the =mpy-upload= tool included in [[https://github.com/nickzoic/mpy-utils][mpy-utils]],
+but there are several methods. Remember to upload a =main.py= file,
+which calls the program (i.e. =import myprogram=). I've removed the
+information about my Wifi network and API tokens, so you will have to
+fill these in manually with your own.
+** Description
+*** airquality.py
+This program displays the real-time air quality and temperature for your
+current location (based on your IP address). It uses the [[http://aqicn.org][aqicn.org]] API
+to get the information and updates every minute. You'll have to get
+your own API token to use it, but this is very easy and also free.
+
+[[file:./examples/airquality.png]]
+
+*** world_time.py
+This program simply displays the time in different parts of the world
+(Toronto, London, and China). It uses the network time protocol (NTP).
+
+*** christmas.py
+This is a count-down to Christmas! It also uses NTP.
+
+[[file:./examples/christmas.png]]
